@@ -17,10 +17,8 @@
 #
 # 	Please maintain this if you use this script or any part of it
 #
-
 #set -o xtrace
 FDEVICE="INOI_A75"
-
 fetch_mt6789_common_repo() {
 	local URL=https://github.com/tommynok/recovery-device_alldocube_mt6789-common.git
 	local common=device/alldocube/mt6789-common
@@ -31,19 +29,19 @@ fetch_mt6789_common_repo() {
 		echo "Device common repository: \"$common\" found ..."
 	fi
 }
-
 # Clone to fix build on minimal manifest
-git clone https://android.googlesource.com/platform/external/gflags/ -b android-12.1.0_r4 external/gflags
-
+if [ ! -d external/gflags ]; then
+	git clone https://android.googlesource.com/platform/external/gflags/ -b android-12.1.0_r4 external/gflags
+else
+	echo "external/gflags already exists, skipping clone"
+fi
 # mt6789-common
 fetch_mt6789_common_repo
-
 # ccache
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 export CCACHE_MAXSIZE="10G"
 export CCACHE_DIR=".ccache"
-
 if [ ! -d ${CCACHE_DIR} ]; then
 	mkdir $CCACHE_DIR
 fi
