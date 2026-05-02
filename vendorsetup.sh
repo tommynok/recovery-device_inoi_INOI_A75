@@ -22,7 +22,7 @@
 FDEVICE="INOI_A75"
 
 fetch_mt6789_common_repo() {
-	local URL=https://github.com/idabgsram/recovery-device_alldocube_mt6789-common.git
+	local URL=https://github.com/tommynok/recovery-device_alldocube_mt6789-common.git
 	local common=device/alldocube/mt6789-common
 	if [ ! -d $common ]; then
 		echo "Cloning $URL ... to $common"
