@@ -23,7 +23,6 @@ TW_DEVICE_VERSION := INOI_A75_NEEA_U_V6_20250828
 # Device Resolution
 override TARGET_SCREEN_WIDTH := 1080
 override TARGET_SCREEN_HEIGHT := 2460
-override OF_SCREEN_H := 2460
 
 # Statusbar
 override TW_STATUS_ICONS_ALIGN := center
